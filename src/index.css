@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ajustes globales */
+html, body {
+  height: 100%;
+  background-color: #0D1117; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
