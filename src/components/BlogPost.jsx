@@ -11,7 +11,6 @@ const BlogPost = () => {
     fetch(`/blog/${slug}.md`)
       .then((res) => res.text())
       .then((text) => {
-        // Extraer metadatos (título, imagen, etc.)
         const metaMatch = text.match(/---([\s\S]*?)---/);
         let meta = {};
         if (metaMatch) {
@@ -24,25 +23,35 @@ const BlogPost = () => {
             });
         }
         setMetadata(meta);
-
-        // Eliminar los metadatos del texto para que no se rendericen
         const cleanText = text.replace(metaMatch[0], "").trim();
         setPost(cleanText);
       });
   }, [slug]);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
-      {/* 🔹 Imagen de portada */}
-      {metadata.image && <img src={metadata.image} alt={metadata.title} className="w-full h-60 object-cover rounded-md mb-6" />}
-      
-      {/* 🔹 Título del post */}
-      <h1 className="text-3xl font-bold text-primary">{metadata.title}</h1>
-      <p className="text-gray-400">{metadata.date} - {metadata.author}</p>
+    <section className="px-4 py-10 sm:px-6 md:px-10 lg:px-20 bg-gray-900 text-white">
+      <div className="max-w-4xl mx-auto bg-gray-800 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
+        {/* 🔹 Imagen de portada */}
+        {metadata.image && (
+          <img
+            src={metadata.image}
+            alt={metadata.title}
+            className="w-full h-60 sm:h-72 object-cover rounded-md mb-6"
+          />
+        )}
 
-      {/* 🔹 Contenido del post en texto puro */}
-      <ReactMarkdown className="mt-4">{post}</ReactMarkdown>
-    </div>
+        {/* 🔹 Título y metadatos */}
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-2">{metadata.title}</h1>
+        <p className="text-sm sm:text-base text-gray-400 mb-6">
+          {metadata.date} {metadata.author && `- ${metadata.author}`}
+        </p>
+
+        {/* 🔹 Contenido del post (markdown) */}
+        <div className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed prose-p:mb-4">
+          <ReactMarkdown>{post}</ReactMarkdown>
+        </div>
+      </div>
+    </section>
   );
 };
 

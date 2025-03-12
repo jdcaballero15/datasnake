@@ -1,20 +1,20 @@
 const ProjectCard = ({ title, description, image, link }) => {
-    return (
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-        <img src={image} alt={title} className="w-full h-40 object-cover rounded-md" />
-        <h2 className="text-xl font-bold text-primary mt-4">{title}</h2>
-        <p className="text-gray-400 mt-2">{description}</p>
-        {link !== "#" ? (
-          <a href={link} target="_blank" rel="noopener noreferrer" className="text-primary mt-3 inline-block hover:underline">
-            Ver Proyecto →
-          </a>
-        ) : (
-          <p className="text-gray-500 mt-3">Próximamente</p>
-        )}
-      </div>
-    );
-  };
-  
-  export default ProjectCard;
-  
-  
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block bg-gray-800 hover:bg-gray-700 transition rounded-lg shadow-md p-4 sm:p-6 md:p-6"
+    >
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">{title}</h3>
+      <p className="text-gray-300 text-sm sm:text-base">{description}</p>
+    </a>
+  );
+};
+
+export default ProjectCard;
