@@ -5,7 +5,7 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // Lista de posts (podés agregar más)
+    // Lista de posts
     setPosts([
       {
         title: "¿Qué es el Análisis de Datos?",
@@ -14,7 +14,13 @@ const Blog = () => {
         summary: "Descubre cómo el análisis de datos puede optimizar tu negocio y mejorar la toma de decisiones.",
         link: "/blog/analisis-datos",
       },
-      // Agregá más artículos si querés
+      {
+        title: "Habilidades Técnicas en el Análisis de Datos",
+        date: "2025-03-28",
+        image: "/blog/habilidades-1.png", // asegurate de que exista esta imagen
+        summary: "Explora cómo Python, SQL y herramientas de visualización como Power BI y Tableau se combinan para crear un análisis de datos efectivo.",
+        link: "/blog/habilidades-tecnicas", // debe coincidir con el nombre del .md
+      },
     ]);
   }, []);
 
