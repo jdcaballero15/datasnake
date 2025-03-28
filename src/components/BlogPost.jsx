@@ -1,58 +1,57 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const BlogPost = () => {
-  const { slug } = useParams();
-  const [post, setPost] = useState("");
-  const [metadata, setMetadata] = useState({});
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(`/blog/${slug}.md`)
-      .then((res) => res.text())
-      .then((text) => {
-        const metaMatch = text.match(/---([\s\S]*?)---/);
-        let meta = {};
-        if (metaMatch) {
-          metaMatch[1]
-            .trim()
-            .split("\n")
-            .forEach((line) => {
-              const [key, value] = line.split(":").map((s) => s.trim());
-              meta[key] = value.replace(/['"]+/g, "");
-            });
-        }
-        setMetadata(meta);
-        const cleanText = text.replace(metaMatch[0], "").trim();
-        setPost(cleanText);
-      });
-  }, [slug]);
+    setPosts([
+      {
+        title: "¿Qué es el Análisis de Datos?",
+        date: "2024-03-02",
+        image: "/blog/analisis-datos-1.png",
+        summary: "Descubre cómo el análisis de datos puede optimizar tu negocio y mejorar la toma de decisiones.",
+        link: "/blog/analisis-datos",
+      },
+      {
+        title: "Habilidades Técnicas en el Análisis de Datos",
+        date: "2025-03-28",
+        image: "/blog/habilidades-1.png",
+        summary: "Explora herramientas esenciales como Python, SQL y Power BI para destacar en el mundo del análisis de datos.",
+        link: "/blog/habilidades-tecnicas",
+      }
+    ]);
+  }, []);
 
   return (
-    <section className="px-4 py-10 sm:px-6 md:px-10 lg:px-20 bg-gray-900 text-white">
-      <div className="max-w-4xl mx-auto bg-gray-800 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
-        {/* 🔹 Imagen de portada */}
-        {metadata.image && (
-          <img
-            src={metadata.image}
-            alt={metadata.title}
-            className="w-full h-60 sm:h-72 object-cover rounded-md mb-6"
-          />
-        )}
+    <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-3xl text-primary font-bold mb-4">Blog</h1>
+      <p className="text-gray-400 mb-6">
+        Explora nuestros artículos sobre análisis y visualización de datos.
+      </p>
 
-        {/* 🔹 Título y metadatos */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-2">{metadata.title}</h1>
-        <p className="text-sm sm:text-base text-gray-400 mb-6">
-          {metadata.date} {metadata.author && `- ${metadata.author}`}
-        </p>
-
-        {/* 🔹 Contenido del post (markdown) */}
-        <div className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed prose-p:mb-4">
-          <ReactMarkdown>{post}</ReactMarkdown>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {posts.map((post, index) => (
+          <div key={index} className="bg-gray-900 p-4 rounded-lg shadow-lg">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-40 object-cover rounded-md mb-4"
+            />
+            <h2 className="text-xl font-bold text-primary">{post.title}</h2>
+            <p className="text-gray-400 text-sm">{post.date}</p>
+            <p className="text-gray-300 mt-2">{post.summary}</p>
+            <Link
+              to={post.link}
+              className="text-blue-400 hover:text-blue-300 mt-4 inline-block"
+            >
+              Leer más →
+            </Link>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default BlogPost;
+export default Blog;
