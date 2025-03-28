@@ -4,6 +4,10 @@ date: "2025-03-28"
 author: "Data Snake"
 image: "/blog/habilidades-1.png"
 ---
+📌 **¿Cuáles son las herramientas esenciales en el análisis de datos?**  
+Si trabajas con datos, necesitas dominar estas tres áreas clave:
+
+---
 
 ## Programación:  
 **Python y R**

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
+import { SiTiktok } from "react-icons/si"; // TikTok icon
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,6 +37,9 @@ const Navbar = () => {
           <a href="https://www.linkedin.com/in/juan-diego-caballero-8871b72b2/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={22} className="text-white hover:text-blue-500" />
           </a>
+          <a href="https://www.tiktok.com/@data.snake?_t=ZM-8v2sQiNbF6E&_r=1" target="_blank" rel="noopener noreferrer">
+            <SiTiktok size={22} className="text-white hover:text-pink-400" />
+          </a>
         </div>
 
         {/* 🔹 Botón hamburguesa Mobile */}
@@ -65,6 +69,9 @@ const Navbar = () => {
             </a>
             <a href="https://www.linkedin.com/in/juan-diego-caballero-8871b72b2/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={20} className="text-white hover:text-blue-500" />
+            </a>
+            <a href="https://www.tiktok.com/@data.snake?_t=ZM-8v2sQiNbF6E&_r=1" target="_blank" rel="noopener noreferrer">
+              <SiTiktok size={20} className="text-white hover:text-pink-400" />
             </a>
           </div>
         </div>
