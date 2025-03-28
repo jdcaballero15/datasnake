@@ -31,7 +31,7 @@ const BlogPost = () => {
   return (
     <section className="px-4 py-10 sm:px-6 md:px-10 lg:px-20 bg-gray-900 text-white">
       <div className="max-w-4xl mx-auto bg-gray-800 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
-        {/* Imagen de portada */}
+        {/* 🔹 Imagen de portada */}
         {metadata.image && (
           <img
             src={metadata.image}
@@ -40,16 +40,27 @@ const BlogPost = () => {
           />
         )}
 
-        {/* Título del post */}
+        {/* 🔹 Título del post */}
         <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-2">{metadata.title}</h1>
         <p className="text-sm sm:text-base text-gray-400 mb-6">
           {metadata.date} {metadata.author && `- ${metadata.author}`}
         </p>
 
-        {/* Contenido del post */}
-        <div className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed prose-p:mb-4">
-          <ReactMarkdown>{post}</ReactMarkdown>
-        </div>
+        {/* 🔹 Contenido Markdown con estilo de imágenes */}
+        <ReactMarkdown
+          components={{
+            img: ({ node, ...props }) => (
+              <img
+                {...props}
+                className="max-w-full md:max-w-md h-auto mx-auto my-4 rounded-lg shadow-md"
+                alt={props.alt}
+              />
+            ),
+          }}
+          className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed prose-p:mb-4"
+        >
+          {post}
+        </ReactMarkdown>
       </div>
     </section>
   );
