@@ -7,8 +7,8 @@ const ProjectCard = ({ title, description, image, link }) => {
       className="block bg-gray-800 hover:bg-gray-700 transition rounded-lg shadow-md p-4 sm:p-6 md:p-6"
     >
       <img
-        src={image}
         alt={title}
+        src={image}
         className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-md mb-4"
       />
       <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">{title}</h3>
