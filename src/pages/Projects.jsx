@@ -2,6 +2,12 @@ import ProjectCard from "../components/ProjectCard";
 
 const projects = [
   {
+    title: "Dashboard de Disponibilidad Logística para Empresa de Transporte",
+    description: "Convertimos una planilla desordenada, con filas duplicadas y sin estructura, en un sistema automatizado de control logístico. Unificamos los datos en Google Sheets, creamos una columna de estado calculado en base a fechas, aplicamos validaciones y listas desplegables para minimizar errores, sumamos formato condicional para facilitar la lectura visual y conectamos todo a un dashboard en Looker Studio con filtros interactivos por tipo de unidad y estado. El resultado es una herramienta clara, dinámica y útil para saber qué unidades están disponibles, planificadas o en viaje, con métricas clave como 'Unidades Disponibles Hoy' y 'Próximas en Estar Disponibles'",
+    image: "/projects/dashboard_final.png",
+    link: "https://github.com/jdcaballero15/logistica-dashboard-disponibilidad/tree/main", // Enlace vacío por ahora
+  },
+  {
     title: "Análisis de Ventas y Efectividad  de Empleados con PowerBi",
     description: "Desarrollé un dashboard interactivo en Power BI basado en datos de ventas, optimizando el análisis con DAX para calcular KPIs clave como porcentaje de ventas, unidades vendidas y productos más vendidos. Con filtros dinámicos por fecha y vendedor, esta herramienta facilita la toma de decisiones estratégicas basadas en datos.",
     image: "/projects/dashboardVentas.png",

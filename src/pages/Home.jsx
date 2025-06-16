@@ -18,7 +18,7 @@ const Home = () => {
         <div>
           <h2 className="text-xl font-bold text-primary mb-2">🌟 Visión</h2>
           <p className="text-gray-300 leading-relaxed">
-            Ser un referente global en el análisis de datos, reconocido por la excelencia, compromiso y capacidad para ayudar a personas y organizaciones de todo el mundo a tomar decisiones estratégicas basadas en datos.
+           Ser la comunidad referente en análisis de datos en Latinoamérica, uniendo educación, calidad técnica y cercanía para transformar información en decisiones que impactan.
             <br /><br />
             Buscamos inspirar, capacitar y acompañar a quienes desean comenzar su camino en el mundo de los datos, poniendo siempre al cliente en el centro de nuestra atención.
           </p>
@@ -28,9 +28,9 @@ const Home = () => {
         <div>
           <h2 className="text-xl font-bold text-primary mb-2">🎯 Misión</h2>
           <p className="text-gray-300 leading-relaxed">
-            Brindar soluciones innovadoras y personalizadas en análisis de datos que permitan a emprendimientos, negocios y empresas optimizar su información, ordenar sus datos y tomar decisiones inteligentes con confianza.
+            En data.snake ayudamos a personas y negocios a entender, ordenar y dominar sus datos.Transformamos el caos en claridad, enseñando a leer la información con precisión para que cada decisión tenga fundamento
             <br /><br />
-            En data.snake no sos un cliente más; sos parte fundamental de nuestro equipo, y trabajamos siempre disponibles y comprometidos con tus objetivos.
+            Trabajamos con orden, compromiso y excelencia, porque creemos que los datos bien trabajados cambian realidades.
           </p>
         </div>
       </div>
